@@ -1,0 +1,301 @@
+html {
+  height: 100%;
+  width: 100%;
+}
+
+.header-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 20px;
+  padding-top: 40px;
+  margin-bottom: 20px;
+  background-color: #3498db;
+  color: #fff;
+}
+
+/* Style for the header items */
+.header-item {
+  flex-basis: calc(50% - 20px); /* Adjust the width and margin as needed */
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Style for the h2 and p inside the header-item */
+.header-item h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.header-item p {
+  font-family: "Helvetica", Arial, sans-serif;
+  line-height: 1.5;
+  font-size: 16px;
+  margin: 0;
+}
+
+/* .header-item:nth-of-type(2) {
+  width: 65%;
+}
+ */
+
+.shadow-header {
+  font-size: 36px;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* For the header-img id selector, define rules for margins, width, and max-width */
+#header-img {
+  flex-basis: calc(50% - 20px); /* Adjust the width and margin as needed */
+  margin: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Style for the h2 inside the header-img */
+#header-img h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* For the header-button ruleset, customize the look of the buttons */
+.header-button {
+  background-color: #0078d4;
+  color: #fff;
+  padding: 10px 20px;
+  margin: 10px;
+  /* Add margin to create space around buttons */
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  /* Align text in the center */
+  font-size: 16px;
+  /* Customize font size */
+}
+
+/* Add rules for font-size, text-align, and more for the buttons */
+.header-button:hover {
+  background-color: #005ea6;
+  /* Change background color on hover */
+  font-size: 18px;
+  /* Adjust font size */
+  text-align: center;
+}
+
+.header-button:active {
+  background-color: #004b8c;
+  /* Change background color when active */
+}
+
+/* Style the footer */
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #f0f0f0;
+  /* Background color for the footer */
+  text-align: center;
+  /* Center-align the content */
+  padding: 10px;
+  /* Add some padding for spacing */
+  border-top: 1px solid #ccc;
+  /* Add a border at the top of the footer */
+}
+
+/* Style the links within the footer */
+.footer a {
+  text-decoration: none;
+  /* Remove underlines from links */
+  color: #0078d4;
+  /* Change link color */
+  margin: 0 10px;
+  /* Add some spacing between links */
+}
+
+/* typewriter, and keyframes are all part of the big slogan */
+.typewriter-text {
+  font-size: 24px;
+  overflow: hidden; /* hide the overflow text */
+  border-right: 1px solid white; /* blinking cursor effect */
+  white-space: nowrap; /* prevent text from wrapping */
+  margin: 0 auto;
+  letter-spacing: 2px; /* adjust letter spacing for better readability */
+  animation: typing 12s steps(40) infinite, blink-caret 1s step-end infinite;
+  width: 80%;
+  margin-bottom: 40px;
+}
+
+@keyframes typing {
+  0%, 100% {
+    width: 0;
+  }
+
+  50%, 95% {
+    width: 100%;
+  }
+}
+
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+
+  50% {
+    border-color: white;
+  }
+}
+
+a:link {
+  text-decoration: none;
+  /* Remove the underline by default */
+  color: #0078d4;
+  /* Change the link text color */
+}
+
+a:visited {
+  text-decoration: none;
+  /* Remove the underline for visited links */
+  color: #9546c1;
+  /* Change the color of visited links */
+}
+
+a:hover {
+  text-decoration: underline;
+  /* Add an underline on hover */
+  color: #e74c3c;
+  /* Change the link color on hover */
+}
+
+a:active {
+  color: #ff9900;
+}
+
+/* Style links separately from articles */
+.link {
+  text-decoration: none;
+  /* Remove underline by default */
+  color: #0078d4;
+  /* Change link text color */
+  font-weight: bold;
+  /* Make the text bold */
+}
+
+/* Style links when hovered */
+.link:hover {
+  text-decoration: underline;
+  /* Underline on hover */
+  color: #e74c3c;
+  /* Change link color on hover */
+}
+
+/* Style the body with a background image and background size */
+body {
+  background-image: url('your-image-url.jp');
+  background-size: cover;
+  /* Adjust the size of the background image */
+}
+
+/* Style the h2 headings with a different font-size and font-weight */
+h2 {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/* Style the paragraph text with a different font-family and line-height */
+p {
+  font-family: "Helvetica", Arial, sans-serif;
+  line-height: 1.5;
+  /* Adjust the line spacing */
+}
+
+/* Style the iframe with a border and rounded corners */
+iframe {
+  border: 1px solid #ccc;
+  /* Add a border around the iframe */
+  border-radius: 5px;
+  /* Add rounded corners to the iframe */
+}
+
+/* Style the article links with a different background color and padding */
+a.article-link {
+  background-color: #f0f0f0;
+  /* Change the background color for article links */
+  padding: 8px 16px;
+  /* Adjust the padding around the links */
+}
+
+
+/* Style the h4 headings with a different color */
+h4 {
+  color: #ff6600;
+  /* Change the color of h4 headings */
+}
+
+/* NAVBAR */
+
+/* General style rule set for all items in ul */
+.navbar ul {
+  list-style-type: none;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  margin-bottom: 20px; /* Adjust this value as needed */
+}
+
+/* Style rule set for individual li */
+.navbar ul li {
+  float: left;
+  margin: 10px;
+}
+
+/* Style rule set for individual li link */
+.navbar ul li a {
+  display: block;
+  text-decoration: none;
+  color: #0078d4; /* Choose your desired link color */
+  text-align: center;
+  padding: 10px 20px; /* Adjust padding to match your site's aesthetic */
+}
+
+/* Style rule set for hovered link */
+.navbar ul li a:hover {
+  background-color: #0078d4; /* Change the background color on hover */
+  color: #fff; /* Change text color on hover */
+  font-weight: bold;
+}
+
+/* FLEXBOX */
+
+/* General style rule set for flex container */
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+/* Style rules for flex-item 1 */
+.flex-item:nth-of-type(1) {}
+
+/* Style rules for flex-item 2 */
+.flex-item:nth-of-type(2) {}
+
+/* Style rules for flex-item 3 */
+.flex-item:nth-of-type(3) {}
+
+
+/* Style set for all flex-items */
+.flex-item {
+  background: white;
+  color: black;
+  font-weight: bold;
+  text-align: center;
+}
