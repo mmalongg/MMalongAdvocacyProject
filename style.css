@@ -200,6 +200,7 @@ a:active {
 body {
   background-image: url('your-image-url.jp');
   background-size: cover;
+  margin: 0;
   /* Adjust the size of the background image */
 }
 
@@ -243,12 +244,14 @@ h4 {
 
 /* General style rule set for all items in ul */
 .navbar ul {
-  list-style-type: none;
-  overflow: hidden;
-  position: fixed;
+  position: fixed !important;
+  list-style: none;
   top: 0;
+  left: 0;
   width: 100%;
-  margin-bottom: 20px; /* Adjust this value as needed */
+  background-color: #fff;
+  z-index: 1;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 /* Style rule set for individual li */
@@ -298,4 +301,23 @@ h4 {
   color: black;
   font-weight: bold;
   text-align: center;
+}
+
+/* Customize Dark Mode Theme */
+.dark-mode {
+  background-color: black;
+  color: white;
+}
+
+/* Add style to button */
+#theme-button {
+  text-decoration: underline;
+  color: #0078d4;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: 2px dotted #0078d4;
+  border-radius: 5px;
+  border-width: thin;
 }
