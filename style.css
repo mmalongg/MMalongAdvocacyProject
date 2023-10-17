@@ -99,7 +99,7 @@ html {
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: #f0f0f0;
+  background-color: lightgray;
   /* Background color for the footer */
   text-align: center;
   /* Center-align the content */
@@ -124,12 +124,12 @@ html {
   font-size: 24px;
   overflow: hidden; /* hide the overflow text */
   border-right: 1px solid white; /* blinking cursor effect */
-  white-space: nowrap; /* prevent text from wrapping */
+  white-space: pre-wrap; /* prevent text from wrapping */
   margin: 0 auto;
   letter-spacing: 2px; /* adjust letter spacing for better readability */
-  animation: typing 12s steps(40) infinite, blink-caret 1s step-end infinite;
+  /*animation: typing 12s steps(40) infinite, blink-caret 1s step-end infinite;
   width: 80%;
-  margin-bottom: 40px;
+  margin-bottom: 40px;*/
 }
 
 @keyframes typing {
@@ -249,15 +249,16 @@ h4 {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #fff;
+  background-color: lightgray;
   z-index: 1;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  margin-top: 0;
 }
 
 /* Style rule set for individual li */
 .navbar ul li {
   float: left;
-  margin: 10px;
+  margin: 5px;
 }
 
 /* Style rule set for individual li link */
@@ -285,16 +286,6 @@ h4 {
   gap: 20px;
 }
 
-/* Style rules for flex-item 1 */
-.flex-item:nth-of-type(1) {}
-
-/* Style rules for flex-item 2 */
-.flex-item:nth-of-type(2) {}
-
-/* Style rules for flex-item 3 */
-.flex-item:nth-of-type(3) {}
-
-
 /* Style set for all flex-items */
 .flex-item {
   background: white;
@@ -320,4 +311,13 @@ h4 {
   border: 2px dotted #0078d4;
   border-radius: 5px;
   border-width: thin;
+  transition: box-shadow 0.3s ease; /* Add transition effect */
+}
+
+#theme-button:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add shadow on hover */
+}
+
+#theme-button:active {
+  transform: scale(0.95); /* Add "click" effect */
 }
