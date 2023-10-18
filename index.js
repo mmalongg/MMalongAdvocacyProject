@@ -29,4 +29,40 @@ function typeWriter() {
 
 window.onload = typeWriter;
 
+let count = 3;
+let isButtonClicked = false;
 
+const addSignature = () => {
+  const name = document.querySelector("#name");
+  const hometown = document.querySelector("#hometown");
+  const email = document.querySelector("#email");
+
+  if (!name.value || !hometown.value || !email.value) {
+    alert("Please fill in all fields before submitting");
+    return;
+  }
+
+  const newSignature = document.createElement("p");
+  newSignature.textContent = `${name.value} from ${hometown.value}`;
+
+  const signaturesSection = document.querySelector(".signatures");
+  signaturesSection.appendChild(newSignature);
+
+  const oldCounter = document.getElementById("counter");
+  if (oldCounter) {
+    oldCounter.remove();
+  }
+
+  count = count + 1;
+
+  const newCounter = document.createElement("p");
+  newCounter.id = "counter";
+  newCounter.textContent = `🖊️ ${count} people have signed this petition and support this cause.`;
+
+  signaturesSection.appendChild(newCounter);
+
+  isButtonClicked = true;
+}
+
+const signNowButton = document.querySelector("#signNowButton");
+signNowButton.addEventListener("click", addSignature);

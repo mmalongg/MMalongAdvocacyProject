@@ -321,3 +321,24 @@ h4 {
 #theme-button:active {
   transform: scale(0.95); /* Add "click" effect */
 }
+
+/* create selector class for petition-container */
+.petition-container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  width: 100%;
+  padding-bottom: 50px;
+}
+
+/* create selector class for petition-para */
+.petition-para {
+  width: 55%;
+  padding-right: 10px;
+}
+
+/* create selector class for signatures */
+.signatures {
+  width: 45%;
+  padding-right: 10px;
+}
