@@ -43,7 +43,7 @@ const addSignature = () => {
   }
 
   const newSignature = document.createElement("p");
-  newSignature.textContent = `${name.value} from ${hometown.value}`;
+  newSignature.textContent = `🖊️ ${name.value} from ${hometown.value}`;
 
   const signaturesSection = document.querySelector(".signatures");
   signaturesSection.appendChild(newSignature);
@@ -59,10 +59,12 @@ const addSignature = () => {
   newCounter.id = "counter";
   newCounter.textContent = `🖊️ ${count} people have signed this petition and support this cause.`;
 
-  signaturesSection.appendChild(newCounter);
+  // Append the new counter to the petition container
+  const petitionContainer = document.querySelector(".petition-container");
+  petitionContainer.appendChild(newCounter);
 
   isButtonClicked = true;
 }
 
-const signNowButton = document.querySelector("#signNowButton");
+const signNowButton = document.querySelector("#sign-now-button");
 signNowButton.addEventListener("click", addSignature);
