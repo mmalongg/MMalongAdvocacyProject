@@ -67,4 +67,48 @@ const addSignature = () => {
 }
 
 const signNowButton = document.querySelector("#sign-now-button");
-signNowButton.addEventListener("click", addSignature);
+// signNowButton.addEventListener("click", addSignature);
+
+const validateForm = () => {
+
+  let containsErrors = false;
+
+  var petitionInputs = document.getElementById("sign-petition").elements;
+  
+  // Loop through all inputs
+  for (let i = 0; i < petitionInputs.length; i++) {
+    if (petitionInputs[i].value.length < 2) {
+      petitionInputs[i].classList.add("error");
+      containsErrors = true;
+      alert("Please fill in all fields before submitting");
+    } else {
+      petitionInputs[i].classList.remove("error");
+    }
+
+    // Check if the input is an email field
+    if (petitionInputs[i].id === "email" && !petitionInputs[i].value.includes(".com")) {
+      petitionInputs[i].classList.add("error");
+      containsErrors = true;
+      alert("Please enter a valid email address");
+    }
+  }
+  
+  // Validate the value of each input, call add Signature() and clear fields if no errors
+  if (containsErrors == false) {
+    addSignature();
+    for (let i = 0; i < petitionInputs.length; i++) {
+      petitionInputs[i].value = "";
+    }
+  }
+}
+
+signNowButton.addEventListener('click', validateForm);
+
+const email = document.getElementById("email");
+
+if (!email.value.includes(".com")) {
+  containsErrors = true;
+  email.classList.add("error");
+} else {
+  email.classList.remove("error");
+}
