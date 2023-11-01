@@ -351,16 +351,14 @@ h4 {
   background:pink;
 }
 
-/* by adding an active class to containers that need to be revealed; then, by writing CSS that moves any element with the active class up and changes its opacity to 1. */
-.active {
-  opacity: 1;
-  transform: translateY(0px);
-}
-
-/* Add the class revealable to each container you want to fade in as the user scrolls. */
 .revealable {
-  opacity: 0;
-  transition: all 2s ease;
   position: relative;
   transform: translateY(150px);
+  opacity: 0;
+  transition: all 2s ease;
+}
+
+.active {
+  transform: translateY(0px);
+  opacity: 1;
 }

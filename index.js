@@ -140,3 +140,20 @@ const reveal = () => {
 };
 
 window.addEventListener('scroll', reveal);
+
+document.getElementById('reduce-motion-button').addEventListener('click', reduceMotion);
+
+function reduceMotion() {
+  // Update the animation object
+  animation.transition = 'none';
+  animation.revealDistance = '0px';
+  animation.opacity = 1;
+
+  // Loop through the revealableContainers
+  for (let i = 0; i < revealableContainers.length; i++) {
+    // Update the style of each revealableContainer
+    revealableContainers[i].style.transition = animation.transition;
+    revealableContainers[i].style.transform = `translateY(${animation.revealDistance})`;
+    revealableContainers[i].style.opacity = animation.opacity;
+  }
+}
