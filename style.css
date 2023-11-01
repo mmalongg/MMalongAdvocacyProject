@@ -227,7 +227,7 @@ iframe {
 
 /* Style the article links with a different background color and padding */
 a.article-link {
-  background-color: #f0f0f0;
+  /*background-color: #f0f0f0;*/
   /* Change the background color for article links */
   padding: 8px 16px;
   /* Adjust the padding around the links */
@@ -349,4 +349,18 @@ h4 {
   border-width: 2px;
   border-color: red;
   background:pink;
+}
+
+/* by adding an active class to containers that need to be revealed; then, by writing CSS that moves any element with the active class up and changes its opacity to 1. */
+.active {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+/* Add the class revealable to each container you want to fade in as the user scrolls. */
+.revealable {
+  opacity: 0;
+  transition: all 2s ease;
+  position: relative;
+  transform: translateY(150px);
 }
