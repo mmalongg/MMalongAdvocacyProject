@@ -32,18 +32,18 @@ window.onload = typeWriter;
 let count = 3;
 let isButtonClicked = false;
 
-const addSignature = () => {
-  const name = document.querySelector("#name");
-  const hometown = document.querySelector("#hometown");
-  const email = document.querySelector("#email");
+const addSignature = (person) => {
+  // const name = document.querySelector("#name");
+  // const hometown = document.querySelector("#hometown");
+  // const email = document.querySelector("#email");
 
-  if (!name.value || !hometown.value || !email.value) {
-    alert("Please fill in all fields before submitting");
-    return;
-  }
+  // if (!name.value || !hometown.value || !email.value) {
+  //   alert("Please fill in all fields before submitting");
+  //   return;
+  // }
 
   const newSignature = document.createElement("p");
-  newSignature.textContent = `🖊️ ${name.value} from ${hometown.value}`;
+  newSignature.textContent = `🖊️ ${person.name} from ${person.hometown}`;
 
   const signaturesSection = document.querySelector(".signatures");
   signaturesSection.appendChild(newSignature);
@@ -74,28 +74,46 @@ const validateForm = () => {
   let containsErrors = false;
 
   var petitionInputs = document.getElementById("sign-petition").elements;
-  
-  // Loop through all inputs
-  for (let i = 0; i < petitionInputs.length; i++) {
-    if (petitionInputs[i].value.length < 2) {
-      petitionInputs[i].classList.add("error");
-      containsErrors = true;
-      alert("Please fill in all fields before submitting");
-    } else {
-      petitionInputs[i].classList.remove("error");
-    }
 
-    // Check if the input is an email field
-    if (petitionInputs[i].id === "email" && !petitionInputs[i].value.includes(".com")) {
-      petitionInputs[i].classList.add("error");
+  let person = {
+    name: petitionInputs[0].value, // accesses and saves value of first input
+    hometown: petitionInputs[1].value, // accesses and saves value of second input
+    email: petitionInputs[2].value // accesses and saves value of third input
+  };
+
+    // Validate the person object
+    if (person.name.length < 2 || person.hometown.length < 2) {
+      alert("Please fill in all fields before submitting");
       containsErrors = true;
-      alert("Please enter a valid email address");
     }
-  }
+  
+    if (!person.email.includes(".com")) {
+      alert("Please enter a valid email address");
+      containsErrors = true;
+    }
+  
+  // // Loop through all inputs
+  // for (let i = 0; i < petitionInputs.length; i++) {
+  //   if (petitionInputs[i].value.length < 2) {
+  //     petitionInputs[i].classList.add("error");
+  //     containsErrors = true;
+  //     alert("Please fill in all fields before submitting");
+  //   } else {
+  //     petitionInputs[i].classList.remove("error");
+  //   }
+
+  //   // Check if the input is an email field
+  //   if (petitionInputs[i].id === "email" && !petitionInputs[i].value.includes(".com")) {
+  //     petitionInputs[i].classList.add("error");
+  //     containsErrors = true;
+  //     alert("Please enter a valid email address");
+  //   }
+  // }
   
   // Validate the value of each input, call add Signature() and clear fields if no errors
-  if (containsErrors == false) {
-    addSignature();
+  if (!containsErrors) {
+    addSignature(person);
+    toggleModal(person);
     for (let i = 0; i < petitionInputs.length; i++) {
       petitionInputs[i].value = "";
     }
@@ -157,3 +175,47 @@ function reduceMotion() {
     revealableContainers[i].style.opacity = animation.opacity;
   }
 }
+
+const toggleModal = (person) => {
+  // Select the modal and its content
+  const modal = document.getElementById('thanks-modal');
+  const modalContent = document.getElementById('thanks-modal-content');
+
+  // Set the modal's display style to flex
+  modal.style.display = 'flex';
+
+  // Set the modal content
+  modalContent.textContent = `Thank you ${person.name} for your support!`;
+
+  // Start the image scaling animation
+  let intervalId = setInterval(scaleImage, 500);
+
+  // Hide the modal after a few seconds
+  setTimeout(() => {
+    modal.style.display = 'none';
+    clearInterval(intervalId);
+  }, 4000);
+};
+
+let scaleFactor = 1;
+const modalImage = document.querySelector('.modal-content img');
+
+const scaleImage = () => {
+  if (scaleFactor === 1) {
+    scaleFactor = 0.8;
+  } else {
+    scaleFactor = 1;
+  }
+
+  modalImage.style.transform = `scale(${scaleFactor})`;
+};
+
+const closeModalButton = document.getElementById('close-modal-button');
+
+const closeModal = () => {
+  const modal = document.getElementById('thanks-modal');
+  modal.style.display = 'none';
+  clearInterval(intervalId);
+};
+
+closeModalButton.addEventListener('click', closeModal);
